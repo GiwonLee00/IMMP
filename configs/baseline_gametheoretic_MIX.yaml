@@ -1,0 +1,27 @@
+title: ddpopp_default
+seed: 2025
+# total_dataset_list: ["crowd_nav", "eth", "hotel", "univ", "zara1", "zara2", "SIT", "JRDB"]
+total_dataset_list: ["crowd_nav", "eth", "hotel", "univ", "zara1", "zara2", "SIT", "THOR"]  # JRDB는 제외
+# except_dataset_list: ["SIT"] # args에서 처리해줌.
+
+dataset:
+  name:  "It will be update..." 
+  data_dir: "It will be update..." 
+
+  ego_centric: True
+  shuffle: True    
+  batch_size:       
+    train: 128
+    val: 128    
+    test: 128
+  num_workers: 0
+  limit_size:       
+    train: 1        
+    val: 1          
+  pin_memory: False    
+  persistent_workers: False 
+  
+model:
+  history: 8       
+  horizon: 12      
+
