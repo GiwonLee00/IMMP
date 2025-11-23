@@ -156,10 +156,10 @@ class Caption3DPoseEngine:
         # self.vid_model = self.vid_model.to('cuda:0')
         # self.vid_model = self.vid_model.eval()
         
-        # Load 3D pose regressor
-        default_cfg = bev_settings()
-        self.pose_model = BEV(default_cfg)
-        self.smpl_parser = SMPLA_parser(default_cfg.smpl_path, default_cfg.smil_path)
+        # Load 3D pose regressor # TODO: 아래 3개 주석처리
+        # default_cfg = bev_settings()
+        # self.pose_model = BEV(default_cfg)
+        # self.smpl_parser = SMPLA_parser(default_cfg.smpl_path, default_cfg.smil_path)
 
         self.conv = conv_templates[conv_mode].copy()
         prompt_1 = 'The input consists of camera view from a mobile robot. In the images, people are standing still or walking, alone or in a group. Your job is to describe the behavior of the person marked with red bounding box. What is the person doing? In one full sentence. Concisely, less than 20 words. Do not talk about clothing of person.'
