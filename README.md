@@ -25,7 +25,7 @@ pip install opencv-python tqdm scipy matplotlib trimesh pyrender pandas peft mov
 
 ---
 
-2. Download Dataset for CrowdNav, ETH_UCY, SIT, and THOR and construct the data folder as shown below
+## 2. Download Dataset for CrowdNav, ETH_UCY, SIT, and THOR and construct the data folder as shown below
 ```bash
 -------------------------------------------
 IMMP/data
@@ -53,7 +53,7 @@ IMMP/data
 -------------------------------------------
 ```
 
-3. Using the preprocess_script folder to preprocess all raw data
+## 3. Using the preprocess_script folder to preprocess all raw data
     A. CrowdNav Preprocessing
     ```bash
         PYTHONPATH=. python preprocess_script/CROWDNAV_preprocess.py
@@ -79,7 +79,7 @@ IMMP/data
         # it will save the processed folder at data_preprocessed/THOR_processed
     ```
 
-4. After preprocessing, the data_preprocessed folder should be constructed as below
+## 4. After preprocessing, the data_preprocessed folder should be constructed as below
 ```bash
 ------------------------------------
 IMMP/data_preprocessed
@@ -111,19 +111,19 @@ IMMP/data_preprocessed
 ------------------------------------
 ```
 
-5. Preparing trained parameters in the source domain of the Game-Theoretic model
+## 5. Preparing trained parameters in the source domain of the Game-Theoretic model
 ```bash
 PYTHONPATH=. python tools_baseline/Game_train/train_forecaster_Game.py
 PYTHONPATH=. python tools_baseline/Game_train/train_planner_Game.py
 ```
 
-6. Merging using our IMMP method
+## 6. Merging using our IMMP method
 ```bash
 python merger_250206_woo.py
 python merged_planner_finetune.py
 ```
 
-7. Test code
+## 7. Test code
 ```bash
 python planner_test.py
 ```
