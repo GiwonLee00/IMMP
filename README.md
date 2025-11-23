@@ -54,32 +54,32 @@ IMMP/data
 ```
 
 ## 3. Using the preprocess_script folder to preprocess all raw data
-    A. CrowdNav Preprocessing
-    ```bash
-        PYTHONPATH=. python preprocess_script/CROWDNAV_preprocess.py
-        # it will save the processed folder at data_preprocessed/CROWDNAV_processed
-    ```
+### A. CrowdNav Preprocessing
+```bash
+PYTHONPATH=. python preprocess_script/CROWDNAV_preprocess.py
+# it will save the processed folder at data_preprocessed/CROWDNAV_processed
+```
 
-    B. ETH-UCY Preprocessing
-    ```bash
-        PYTHONPATH=. python preprocess_script/ETH_UCY_preprocess.py
-        # it will save the processed folder at data_preprocessed/ETH_UCY_processed
-    ```
+### B. ETH-UCY Preprocessing
+```bash
+PYTHONPATH=. python preprocess_script/ETH_UCY_preprocess.py
+# it will save the processed folder at data_preprocessed/ETH_UCY_processed
+```
 
-    C. SIT Preprocessing (It has 3 steps)
-    ```bash
-        PYTHONPATH=. python preprocess_script/SIT_preprocess_1st.py   # saves to SIT_processed_1st
-        PYTHONPATH=. python preprocess_script/SIT_preprocess_2nd.py   # saves to SIT_processed_2nd
-        PYTHONPATH=. python preprocess_script/SIT_preprocess_3rd.py   # saves to SIT_processed_3rd
-    ```
+### C. SIT Preprocessing (It has 3 steps)
+```bash
+PYTHONPATH=. python preprocess_script/SIT_preprocess_1st.py   # saves to SIT_processed_1st
+PYTHONPATH=. python preprocess_script/SIT_preprocess_2nd.py   # saves to SIT_processed_2nd
+PYTHONPATH=. python preprocess_script/SIT_preprocess_3rd.py   # saves to SIT_processed_3rd
+```
 
-    D. THOR Preprocessing
-    ```bash
-        PYTHONPATH=. python preprocess_script/THOR_preprocess.py
-        # it will save the processed folder at data_preprocessed/THOR_processed
-    ```
+### D. THOR Preprocessing
+```bash
+PYTHONPATH=. python preprocess_script/THOR_preprocess.py
+# it will save the processed folder at data_preprocessed/THOR_processed
+```
 
-## 4. After preprocessing, the data_preprocessed folder should be constructed as below
+### After preprocessing, the data_preprocessed folder should be constructed as below
 ```bash
 ------------------------------------
 IMMP/data_preprocessed
@@ -111,19 +111,19 @@ IMMP/data_preprocessed
 ------------------------------------
 ```
 
-## 5. Preparing trained parameters in the source domain of the Game-Theoretic model
+## 4. Preparing trained parameters in the source domain of the Game-Theoretic model
 ```bash
 PYTHONPATH=. python tools_baseline/Game_train/train_forecaster_Game.py
 PYTHONPATH=. python tools_baseline/Game_train/train_planner_Game.py
 ```
 
-## 6. Merging using our IMMP method
+## 5. Merging using our IMMP method
 ```bash
 python merger_250206_woo.py
 python merged_planner_finetune.py
 ```
 
-## 7. Test code
+## 6. Test code
 ```bash
 python planner_test.py
 ```
