@@ -1,0 +1,22 @@
+title: ddpopp_default
+seed: 2025
+
+dataset:              
+  name: univ   # eth, hotel, univ, zara1, zara2    # 중요!! 
+  data_dir: "data/eth_ucy/eth"
+  
+  shuffle: True    
+  batch_size:       
+    train: 128
+    val: 128    
+    test: 128
+  num_workers: 0
+  limit_size:       
+    train: 1        
+    val: 1          
+  pin_memory: False    
+  persistent_workers: False 
+  
+model:
+  history: 8       
+  horizon: 12  
