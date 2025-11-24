@@ -1,0 +1,23 @@
+title: ddpopp_default
+seed: 2025
+
+dataset:
+  name: crowd_nav   
+  data_dir: "data/demonstration/data_imit.pt"     
+  
+  shuffle: True    
+  batch_size:       
+    train: 128 
+    val: 128    
+    test: 128
+  num_workers: 0
+  limit_size:       
+    train: 1        
+    val: 1          
+  pin_memory: False    
+  persistent_workers: False 
+  
+model:
+  history: 8       
+  horizon: 12      
+

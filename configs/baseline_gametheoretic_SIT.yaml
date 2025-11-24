@@ -1,0 +1,30 @@
+title: ddpopp_default
+seed: 2025
+
+baseline:               # 기존 코드의 pth를 그대로 가져와서 학습에 활용
+  ckpt_mle_robot_as_robot_forecast: "/mnt/minseok/Game_ETH_base_250111/trained_baseline/gametheoretic/SIT/mle_forecasters_robot_as_robot/8_12/99.pth"
+  ckpt_mle_robot_as_robot_planner: "/mnt/minseok/Game_ETH_base_250111/trained_baseline/gametheoretic/SIT/mle_planners_robot_as_robot/8_12/best_jerk.pth"
+  ckpt_mle_human_as_robot_forecast: "/mnt/minseok/Game_ETH_base_250111/trained_baseline/gametheoretic/SIT/mle_forecasters_human_as_robot/8_12/99.pth"
+  ckpt_mle_human_as_robot_planner: "/mnt/minseok/Game_ETH_base_250111/trained_baseline/gametheoretic/SIT/mle_planners_human_as_robot/8_12/best_jerk.pth"
+  ckpt_adv_forecast: ".."
+  ckpt_safe_planner: ".."
+
+dataset:
+  name: SIT   
+  ego_centric: True  
+  shuffle: True    
+  batch_size:       
+    train: 128
+    val: 128    
+    test: 128
+  num_workers: 0
+  limit_size:       
+    train: 1        
+    val: 1          
+  pin_memory: False    
+  persistent_workers: False 
+  
+model:
+  history: 8       
+  horizon: 12  
+
