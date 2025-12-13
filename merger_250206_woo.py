@@ -301,7 +301,7 @@ def parse_args():
     parser.add_argument("--planner_exp_name", type=str, default=None)
     parser.add_argument("--exp_with_specific_scene", type=str, default="No", help='for SIT, JRDB dataset') 
     parser.add_argument("--exp_scene_name", type=str, default=None)
-    parser.add_argument("--pretrained_path", type=str, default='/mnt/minseok/APTP/results/APTP', help='pretrained checkpoint path')
+    parser.add_argument("--pretrained_path", type=str, default='results/APTP', help='pretrained checkpoint path')
     parser.add_argument('--except_dataset_name', type=str, nargs="+", help='실제 학습 시 mix에서 제외할 데이터셋', default=None)
 
     # NOTE: Target_domain

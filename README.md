@@ -100,16 +100,24 @@ IMMP/data_preprocessed
 ------ zara2
 --------- train
 --------- val
---- SIT_processed
------- SIT_APTP_processed
---------- Cafe_street_1-002_agents_0_to_200
---------- Cafe_street_2-001_agents_0_to_200
+--- SIT_processed_1st
+------ Cafe_street_1-002_agents_0_to_200.pt
+------ Cafe_street_2-001_agents_0_to_200.pt
+...
+--- SIT_processed_2nd
+------ Cafe_street_1-002_agents_0_to_200
+------ Cafe_street_2-001_agents_0_to_200
+...
+--- SIT_processed_3rd
+------ Cafe_street_1-002_agents_0_to_200
+------ Cafe_street_2-001_agents_0_to_200
 ...
 --- THOR_processed
 ------ train
 ------ valid
 ------------------------------------
 ```
+
 
 ## 4. Preparing trained parameters in the source domain of the Game-Theoretic model
 ```bash

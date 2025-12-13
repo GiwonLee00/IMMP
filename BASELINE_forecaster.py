@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '6'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 from argparse import ArgumentParser
 import yaml
 import torch
@@ -53,7 +53,7 @@ def main(args, cfg):
     # NOTE: forecaster model 
     torch.manual_seed(cfg["seed"])      # model weight same init
     forecaster = ForecasterModel_uni(history=HISTORY, horizon=HORIZON)
-    forecaster_dict = torch.load(f"/mnt/minseok/APTP/results/APTP/forecaster/{args.trained_dataset_name}{forecaster_mix_path}/ckpt/best_ade.pth") 
+    forecaster_dict = torch.load(f"results/APTP/forecaster/{args.trained_dataset_name}{forecaster_mix_path}/ckpt/best_ade.pth") 
     forecaster.load_state_dict(forecaster_dict)
     forecaster.to(device)
 
@@ -154,7 +154,7 @@ def parse_args():
     # NOTE: Target_domain
     full_domain = ["crowd_nav", "eth", "hotel", "univ", "zara1", "zara2", "THOR", "SIT"]    # fixed
     # TODO: Only change here ------------------------------------------------------------------------ #
-    Target_domain = ["THOR", "SIT"]                                                         
+    Target_domain = ["SIT"]                                                         
     # ----------------------------------------------------------------------------------------------- #
     Source_domain = [domain for domain in full_domain if domain not in Target_domain]
     # NOTE: pretrained model dataset
