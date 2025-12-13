@@ -53,7 +53,7 @@ def main(args, cfg):
 
     # NOTE: load pretrained forecaster 
     forecaster = ForecasterModel_uni(history=HISTORY, horizon=HORIZON)
-    forecaster_dict = torch.load(f"/mnt/minseok/APTP/results/APTP/forecaster_BASELINE/{args.trained_dataset_name}_finetune_in_{'_'.join(args.finetune_dataset_name_str)}{forecaster_mix_path}/ckpt/best_ade.pth") 
+    forecaster_dict = torch.load(f"results/APTP/forecaster_BASELINE/{args.trained_dataset_name}_finetune_in_{'_'.join(args.finetune_dataset_name_str)}{forecaster_mix_path}/ckpt/best_ade.pth") 
     forecaster.load_state_dict(forecaster_dict)
     forecaster.eval()       # NOTE: planner 학습동안 forecaster는 학습되지 않음. Task vector와 관련해서는 좀 생각해봐야할 듯
     forecaster.to(device)
@@ -61,7 +61,7 @@ def main(args, cfg):
     # NOTE: planner model 
     torch.manual_seed(cfg["seed"])  
     planner = PlannerModel_uni(horizon=HORIZON, history = HISTORY)  
-    planner_dict = torch.load(f"/mnt/minseok/APTP/results/APTP/planner/{args.trained_dataset_name}{planner_mix_path}/{args.planner_exp_name}/ckpt/best_ade.pth")
+    planner_dict = torch.load(f"results/APTP/planner/{args.trained_dataset_name}{planner_mix_path}/{args.planner_exp_name}/ckpt/best_ade.pth")
     planner.load_state_dict(planner_dict)
     planner.train()
     planner.to(device)
@@ -187,7 +187,7 @@ def parse_args():
     # NOTE: Target_domain
     full_domain = ["crowd_nav", "eth", "hotel", "univ", "zara1", "zara2", "THOR", "SIT"]    # fixed
     # TODO: Only change here ------------------------------------------------------------------------ #
-    Target_domain = ["THOR", "SIT"]            # ["THOR", "SIT"]                                                         
+    Target_domain = ["SIT"]            # ["THOR", "SIT"]                                                         
     # ----------------------------------------------------------------------------------------------- #
     Source_domain = [domain for domain in full_domain if domain not in Target_domain]
     # NOTE: pretrained model dataset
