@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '5'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 from argparse import ArgumentParser
 import yaml
 import torch
@@ -12,7 +12,6 @@ import pathlib
 from dataset.crowd_nav.datamodule_crowdnav import DataModule_CrowdNav
 from dataset.ETH.datamodule_eth import DataModule_ETH  
 from dataset.SIT.SIT_datamodule import SITDatamodule 
-from dataset.JRDB.JRDB_datamodule import JRDBDatamodule 
 from dataset.MIX.MIX_datamodule import MIXDatamodule
 from dataset.THOR.THOR_datamodule import THORDatamodule
 
@@ -43,7 +42,6 @@ def main(args, cfg):
                   'zara2': DataModule_ETH,
                   'THOR': THORDatamodule, 
                   'SIT': SITDatamodule,  
-                  'JRDB': JRDBDatamodule,  
                   'MIX': MIXDatamodule,     
                   }[args.dataset_name](args, cfg)
     train_loader, valid_loader = datamodule.return_train_dataloader(), datamodule.return_valid_dataloader()
@@ -154,10 +152,10 @@ def parse_args():
     # dataset_name = "zara1"
     # dataset_name = "zara2"
     # dataset_name = "THOR"
-    # dataset_name = "SIT"   
+    dataset_name = "SIT"   
     # dataset_name = "JRDB"
     
-    dataset_name = "MIX"
+    # dataset_name = "MIX"
     # TODO: 여기 수정 250214 ------------------------------------------------------------------------ # 
     # except_dataset_name = ' '.join(["THOR", "SIT"])        # dataset_name == "MIX" 일 때, 파일 저장명 바꾸기 위함. (아닐때는 그냥 암거나 가능)             
     except_dataset_name = ' '.join(["crowd_nav", "eth", "hotel", "univ", "zara1", "zara2"])       #  ["THOR", "SIT"]    

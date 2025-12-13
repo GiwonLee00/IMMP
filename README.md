@@ -121,8 +121,8 @@ IMMP/data_preprocessed
 
 ## 4. Preparing trained parameters in the source domain of the Game-Theoretic model
 ```bash
-PYTHONPATH=. python tools_baseline/Game_train/train_forecaster_Game.py
-PYTHONPATH=. python tools_baseline/Game_train/train_planner_Game.py
+PYTHONPATH=. python forecaster.py
+PYTHONPATH=. python planner.py
 ```
 
 ## 5. Merging using our IMMP method
